@@ -134,7 +134,7 @@ players ────┘         └──── player_stats
 - [x] **Fase 2** — FastAPI REST endpoints
 - [x] **Fase 3** — Streamlit live dashboard
 - [x] **Fase 4** — Full Docker Compose (all services)
-- [ ] **Fase 5** — Cloud deploy (AWS) + CI/CD GitHub Actions
+- [x] **Fase 5** — Cloud deploy (AWS) + CI/CD GitHub Actions
 
 ---
 
