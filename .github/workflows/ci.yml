@@ -1,0 +1,48 @@
+name: CI — Sports Realtime Platform
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    name: Validate Project Structure
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install producer dependencies
+        run: pip install -r producer/requirements.txt
+
+      - name: Install consumer dependencies
+        run: pip install -r consumer/requirements.txt
+
+      - name: Install backend dependencies
+        run: pip install -r backend/requirements.txt
+
+      - name: Install dashboard dependencies
+        run: pip install -r dashboard/requirements.txt
+
+      - name: Check producer syntax
+        run: python -m py_compile producer/main.py && echo "✅ producer OK"
+
+      - name: Check consumer syntax
+        run: python -m py_compile consumer/main.py && echo "✅ consumer OK"
+
+      - name: Check backend syntax
+        run: python -m py_compile backend/main.py && echo "✅ backend OK"
+
+      - name: Check dashboard syntax
+        run: python -m py_compile dashboard/main.py && echo "✅ dashboard OK"
+
+      - name: Validate docker-compose
+        run: docker compose config --quiet && echo "✅ docker-compose OK"
