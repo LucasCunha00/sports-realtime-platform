@@ -111,7 +111,7 @@ docker logs consumer -f
 | GET | `/matches` | List all matches |
 | GET | `/matches/{id}` | Get match details |
 | GET | `/matches/{id}/stats` | Full stats per minute |
-| GET | `/matches/{id}/players` | Player events |
+| GET | `/matches/{id}/players` | Player events *(in progress)* |
 | GET | `/matches/{id}/timeline` | Score evolution (for charts) |
 
 ---
@@ -134,7 +134,7 @@ players ────┘         └──── player_stats
 - [x] **Fase 2** — FastAPI REST endpoints
 - [x] **Fase 3** — Streamlit live dashboard
 - [x] **Fase 4** — Full Docker Compose (all services)
-- [ ] **Fase 5** — Cloud deploy (AWS/GCP) + CI/CD GitHub Actions
+- [ ] **Fase 5** — Cloud deploy (AWS) + CI/CD GitHub Actions
 
 ---
 
@@ -148,7 +148,7 @@ players ────┘         └──── player_stats
 | Dashboard | Streamlit + Plotly |
 | Containerization | Docker + Compose |
 | Language | Python 3.12 |
-| Cloud | AWS / GCP *(Fase 5)* |
+| Cloud | AWS *(Fase 5)* |
 
 ---
 
