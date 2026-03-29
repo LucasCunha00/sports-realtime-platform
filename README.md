@@ -1,7 +1,15 @@
 # ⚽ Sports Realtime Platform
 
 > End-to-end real-time sports data pipeline — from event generation to interactive dashboard.
-> Built with **Python · Apache Kafka · PostgreSQL · FastAPI · Streamlit · Docker**
+> Built with **Python · Apache Kafka · PostgreSQL · FastAPI · Streamlit · Docker · AWS EC2**
+
+## 🌐 Live Demo (AWS EC2)
+
+| Service | URL |
+|---|---|
+| 📊 Dashboard | http://18.231.66.201:8501 |
+| 🔌 API Docs | http://18.231.66.201:8000/docs |
+| 🗂️ Kafka UI | http://18.231.66.201:8081 |
 
 ---
 
@@ -63,7 +71,7 @@ sports-realtime-platform/
 ├── tests/
 ├── docker-compose.yml
 └── .github/
-    └── workflows/
+    └── workflows/     # CI/CD GitHub Actions
 ```
 
 ---
@@ -90,7 +98,7 @@ docker logs producer -f
 docker logs consumer -f
 ```
 
-### Services
+### Local Services
 
 | Service | URL | Description |
 |---|---|---|
@@ -128,13 +136,25 @@ players ────┘         └──── player_stats
 
 ---
 
+## ☁️ AWS Deploy
+
+The project is deployed on **AWS EC2 (t2.micro)** with the following setup:
+
+- Ubuntu 24.04 LTS
+- Docker + Docker Compose
+- 25GB EBS volume
+- 2GB swap file (required for Kafka on t2.micro)
+- Security Group with ports 22, 8000, 8081, 8501 open
+
+---
+
 ## 📋 Roadmap
 
 - [x] **Fase 1** — Producer → Kafka → Consumer → PostgreSQL
 - [x] **Fase 2** — FastAPI REST endpoints
 - [x] **Fase 3** — Streamlit live dashboard
 - [x] **Fase 4** — Full Docker Compose (all services)
-- [x] **Fase 5** — Cloud deploy (AWS) + CI/CD GitHub Actions
+- [x] **Fase 5** — Cloud deploy AWS EC2 + CI/CD GitHub Actions
 
 ---
 
@@ -147,8 +167,9 @@ players ────┘         └──── player_stats
 | Backend API | FastAPI |
 | Dashboard | Streamlit + Plotly |
 | Containerization | Docker + Compose |
+| CI/CD | GitHub Actions |
 | Language | Python 3.12 |
-| Cloud | AWS *(Fase 5)* |
+| Cloud | AWS EC2 |
 
 ---
 
