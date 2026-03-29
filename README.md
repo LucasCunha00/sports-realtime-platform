@@ -136,16 +136,15 @@ players ────┘         └──── player_stats
 
 ---
 
-## ☁️ AWS Deploy
+## ☁️ AWS Deployment
 
 The project is deployed on **AWS EC2 (t2.micro)** with the following setup:
 
 - Ubuntu 24.04 LTS
-- Docker + Docker Compose
-- 25GB EBS volume
-- 2GB swap file (required for Kafka on t2.micro)
-- Security Group with ports 22, 8000, 8081, 8501 open
-
+- Docker & Docker Compose
+- 25GB EBS storage
+- 2GB swap (required for Kafka on low-memory instances)
+- Security Group exposing ports: 22 (SSH), 8000 (API), 8081 (Kafka UI), 8501 (Dashboard)
 ---
 
 ## 📋 Roadmap
